@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.6.0/bin/node /usr/local/Cellar/yarn/1.1.0/libexec/bin/yarn.js publish
+  /usr/local/Cellar/node/8.7.0/bin/node /usr/local/Cellar/yarn/1.1.0/libexec/bin/yarn.js publish
 
 PATH: 
   /usr/local/bin:/opt/local/sbin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/sbin:/opt/local/bin:/usr/share/apache-ant-1.9.4/bin:/usr/share/apache-ant-1.9.4/bin
@@ -8,7 +8,7 @@ Yarn version:
   1.1.0
 
 Node version: 
-  8.6.0
+  8.7.0
 
 Platform: 
   darwin x64
@@ -16,7 +16,7 @@ Platform:
 npm manifest: 
   {
     "name": "wonder-bs-jest",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "BuckleScript bindings to the Jest testing framework for wonder",
     "scripts": {
       "build": "bsb -make-world",
@@ -2479,7 +2479,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: https://registry.npmjs.org/wonder-bs-jest: You cannot publish over the previously published version 0.1.0.
+  Error: https://registry.npmjs.org/wonder-bs-jest: You cannot publish over the previously published version 0.2.0.
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.1.0/libexec/lib/cli.js:61779:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.1.0/libexec/lib/cli.js:121917:22)
       at emitTwo (events.js:125:13)

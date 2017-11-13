@@ -1,5 +1,5 @@
 {
-  "name": "bs-jest",
+  "name": "wonder-bs-jest",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
   "sources": [
     {
