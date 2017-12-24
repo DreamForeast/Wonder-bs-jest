@@ -153,6 +153,8 @@ module Runner (A : Asserter) = struct
   external _test : string -> (unit -> unit Js.undefined) -> unit = "test" [@@bs.val]
   external _testAsync : string -> ((unit -> unit) -> unit Js.undefined) -> unit = "test" [@@bs.val]
   external _testPromise : string -> (unit -> 'a Js.Promise.t) -> unit = "test" [@@bs.val]
+  external _testPromiseWithTimeout : string -> (unit -> 'a Js.Promise.t) -> int -> unit = "test" [@@bs.val]
+
 
   let test name callback =
     _test name (fun () ->
@@ -170,6 +172,12 @@ module Runner (A : Asserter) = struct
     _testPromise name (fun () ->
       callback () |> Js.Promise.then_ (fun a -> a |> A.assert_ |> Js.Promise.resolve))
 
+  (* add by wonder *)
+  let testPromiseWithTimeout name callback timeout =
+    _testPromiseWithTimeout name (fun () ->
+      callback () |> Js.Promise.then_ (fun a -> a |> A.assert_ |> Js.Promise.resolve)) timeout
+  (* add end *)
+
   let testAll name inputs callback =
     inputs |> List.iter (fun input ->
       let name = {j|$name - $input|j} in
@@ -183,6 +191,11 @@ module Runner (A : Asserter) = struct
   external beforeEach : (unit -> unit) -> unit = "" [@@bs.val]
   external afterAll : (unit -> unit) -> unit = "" [@@bs.val]
   external afterEach : (unit -> unit) -> unit = "" [@@bs.val]
+
+  (* add by wonder *)
+  external beforeAllPromise : (unit -> 'a Js.Promise.t) -> unit = "beforeAll" [@@bs.val]
+  external afterAllPromise : (unit -> 'a Js.Promise.t) -> unit = "afterAll" [@@bs.val]
+  (* add end *)
 
   module Only = struct
     external _test : string -> (unit -> unit Js.undefined) -> unit = "test.only" [@@bs.val]

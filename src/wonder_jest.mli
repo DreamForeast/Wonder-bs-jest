@@ -11,12 +11,21 @@ module Runner (A : Asserter) : sig
   val testPromise : string -> (unit -> 'a A.t Js.Promise.t) -> unit
   val testAll : string -> 'a list -> ('a -> 'b A.t) -> unit
 
+  (* add by wonder *)
+  val testPromiseWithTimeout : string -> (unit -> 'a A.t Js.Promise.t) -> int -> unit
+  (* add end *)
+
   external describe : string -> (unit -> unit) -> unit = "" [@@bs.val]
 
   external beforeAll : (unit -> unit) -> unit = "" [@@bs.val]
   external beforeEach : (unit -> unit) -> unit = "" [@@bs.val]
   external afterAll : (unit -> unit) -> unit = "" [@@bs.val]
   external afterEach : (unit -> unit) -> unit = "" [@@bs.val]
+
+  (* add by wonder *)
+  external beforeAllPromise : (unit -> 'a Js.Promise.t) -> unit = "beforeAll" [@@bs.val]
+  external afterAllPromise : (unit -> 'a Js.Promise.t) -> unit = "afterAll" [@@bs.val]
+  (* add end *)
 
   module Only : sig
     val test : string -> (unit -> 'a A.t) -> unit
@@ -40,12 +49,28 @@ val testAsync : string -> (('a assertion -> unit) -> unit) -> unit
 val testPromise : string -> (unit -> 'a assertion Js.Promise.t) -> unit
 val testAll : string -> 'a list -> ('a -> 'b assertion) -> unit
 
+  (* add by wonder *)
+val testPromiseWithTimeout : string -> (unit -> 'a assertion Js.Promise.t) -> int -> unit
+  (* add end *)
+
 external describe : string -> (unit -> unit) -> unit = "" [@@bs.val]
 
 external beforeAll : (unit -> unit) -> unit = "" [@@bs.val]
 external beforeEach : (unit -> unit) -> unit = "" [@@bs.val]
 external afterAll : (unit -> unit) -> unit = "" [@@bs.val]
 external afterEach : (unit -> unit) -> unit = "" [@@bs.val]
+
+
+
+  (* add by wonder *)
+  external beforeAllPromise : (unit -> 'a Js.Promise.t) -> unit = "beforeAll" [@@bs.val]
+  external afterAllPromise : (unit -> 'a Js.Promise.t) -> unit = "afterAll" [@@bs.val]
+  (* add end *)
+
+
+
+
+
 
 module Only : sig
   val test : string -> (unit -> 'a assertion) -> unit
