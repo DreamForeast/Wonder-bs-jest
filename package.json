@@ -1,6 +1,6 @@
 {
   "name": "wonder-bs-jest",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "BuckleScript bindings to the Jest testing framework for wonder",
   "scripts": {
     "build": "bsb -make-world",
@@ -18,9 +18,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bs-platform": "^1.9.0"
+    "bs-platform": "2.1.0"
   },
   "dependencies": {
-    "wonder-jest": "^0.0.2"
+    "wonder-jest": "latest"
   }
 }
